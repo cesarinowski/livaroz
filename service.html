@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Szczegóły usług biznesowych LIVAROZ."
+  >
+  <title>LIVAROZ | Usługa</title>
+
+  <style>
+    :root {
+      --navy: #101d32;
+      --navy-light: #192b49;
+      --gold: #c6a464;
+      --cream: #f4f0e8;
+      --white: #ffffff;
+      --text: #273142;
+      --muted: #687284;
+      --shadow: 0 18px 50px rgba(16, 29, 50, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    header {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    nav {
+      display: flex;
+      min-height: 80px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), #ead7a9);
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      border-radius: 50%;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    select {
+      padding: 9px 12px;
+      color: var(--white);
+      background: var(--navy-light);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 7px;
+    }
+
+    select option {
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .back-link {
+      color: var(--gold);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 470px;
+      display: flex;
+      align-items: flex-end;
+      padding: 90px 0 60px;
+      color: var(--white);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin-top: 22px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.12rem;
+    }
+
+    .content {
+      padding: 80px 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: clamp(25px, 5vw, 48px);
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.1;
+    }
+
+    .details {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .features {
+      display: grid;
+      gap: 13px;
+      margin-top: 28px;
+      list-style: none;
+    }
+
+    .features li {
+      padding: 15px 18px;
+      color: var(--navy);
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+      font-weight: 700;
+    }
+
+    .contact-panel {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .contact-panel h2 {
+      color: var(--white);
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .contact-button {
+      display: inline-flex;
+      margin-top: 25px;
+      padding: 14px 20px;
+      color: var(--navy);
+      background: var(--gold);
+      border: 0;
+      border-radius: 5px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 27px;
+      color: rgba(255, 255, 255, 0.68);
+      background: #0a1425;
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        align-items: flex-start;
+        padding: 20px 0;
+      }
+
+      .nav-actions {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="LIVAROZ_index(1).html"><span class="logo-mark">L</span><span>LIVAROZ</span></a>
+
+      <div class="nav-actions">
+        <a class="back-link" id="backLink" href="index_fixed(1).html#uslugi">
+          ← <span id="backText">Powrót</span>
+        </a>
+
+        <select id="languageSelect" aria-label="Wybierz język">
+          <option value="pl">PL</option>
+          <option value="it">IT</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="serviceHero">
+      <div class="container hero-content">
+        <span class="eyebrow">LIVAROZ</span>
+        <h1 id="serviceTitle">Usługa</h1>
+        <p id="serviceIntro"></p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container content-grid">
+        <article class="panel">
+          <h2 id="scopeTitle">Zakres współpracy</h2>
+          <p class="details" id="serviceDetails"></p>
+          <ul class="features" id="featureList"></ul>
+        </article>
+
+        <aside class="panel contact-panel">
+          <span class="eyebrow" id="contactLabel">Kontakt</span>
+          <h2 id="contactTitle">Porozmawiajmy o projekcie</h2>
+          <p id="contactDescription">
+            Napisz do nas i opowiedz o swoich potrzebach.
+          </p>
+
+          <button class="contact-button" id="contactButton" type="button">
+            livaroz@livaroz.net →
+          </button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> LIVAROZ.
+    <span id="rights">Wszelkie prawa zastrzeżone.</span>
+  </footer>
+
+  <script>
+    const common = {
+      pl: {
+        back: "Powrót",
+        scope: "Zakres współpracy",
+        contactLabel: "Kontakt",
+        contactTitle: "Porozmawiajmy o projekcie",
+        contactDescription:
+          "Napisz do nas i opowiedz o swoich potrzebach, rynku oraz planowanych celach.",
+        rights: "Wszelkie prawa zastrzeżone.",
+        emailSubject: "Zapytanie biznesowe - LIVAROZ",
+        emailBody:
+          "Dzień dobry,%0D%0A%0D%0AChciałbym porozmawiać o usłudze: "
+      },
+      it: {
+        back: "Indietro",
+        scope: "Ambito della collaborazione",
+        contactLabel: "Contatti",
+        contactTitle: "Parliamo del tuo progetto",
+        contactDescription:
+          "Scrivici e raccontaci le tue esigenze, il mercato di riferimento e gli obiettivi.",
+        rights: "Tutti i diritti riservati.",
+        emailSubject: "Richiesta commerciale - LIVAROZ",
+        emailBody:
+          "Buongiorno,%0D%0A%0D%0AVorrei parlare del servizio: "
+      },
+      en: {
+        back: "Back",
+        scope: "Scope of cooperation",
+        contactLabel: "Contact",
+        contactTitle: "Let's discuss your project",
+        contactDescription:
+          "Write to us and tell us about your requirements, target market and objectives.",
+        rights: "All rights reserved.",
+        emailSubject: "Business inquiry - LIVAROZ",
+        emailBody:
+          "Hello,%0D%0A%0D%0AI would like to discuss the service: "
+      }
+    };
+
+    const services = {
+      business: {
+        image: "assets/business.jpg",
+        pl: {
+          title: "Rozwój biznesu",
+          intro:
+            "Pomagamy firmom skutecznie rozwijać działalność i wchodzić na nowe rynki.",
+          details:
+            "Analizujemy możliwości rozwoju, pomagamy budować strategię wejścia na rynek oraz łączymy klientów z odpowiednimi partnerami biznesowymi w Polsce, Włoszech i Europie.",
+          features: [
+            "Strategia rozwoju i ekspansji",
+            "Analiza rynku i konkurencji",
+            "Pozyskiwanie partnerów handlowych",
+            "Wsparcie negocjacji i wdrożenia"
+          ]
+        },
+        it: {
+          title: "Sviluppo commerciale",
+          intro:
+            "Aiutiamo le aziende a crescere e ad entrare con efficacia in nuovi mercati.",
+          details:
+            "Analizziamo le opportunità di crescita, costruiamo strategie di ingresso nel mercato e colleghiamo i clienti con partner commerciali adeguati in Italia, Polonia ed Europa.",
+          features: [
+            "Strategia di crescita ed espansione",
+            "Analisi del mercato e della concorrenza",
+            "Ricerca di partner commerciali",
+            "Supporto nelle trattative e nell'implementazione"
+          ]
+        },
+        en: {
+          title: "Business Development",
+          intro:
+            "We help companies grow effectively and enter new markets.",
+          details:
+            "We assess growth opportunities, create market-entry strategies and connect clients with suitable business partners in Italy, Poland and Europe.",
+          features: [
+            "Growth and expansion strategy",
+            "Market and competitor analysis",
+            "Business partner acquisition",
+            "Negotiation and implementation support"
+          ]
+        }
+      },
+
+      consulting: {
+        image: "assets/consulting.jpg",
+        pl: {
+          title: "Doradztwo",
+          intro:
+            "Zapewniamy praktyczne doradztwo strategiczne, biznesowe i międzynarodowe.",
+          details:
+            "Wspieramy przedsiębiorców i zespoły zarządzające w podejmowaniu decyzji, planowaniu kierunku rozwoju oraz rozwiązywaniu wyzwań związanych z działalnością międzynarodową.",
+          features: [
+            "Konsultacje strategiczne",
+            "Ocena modelu biznesowego",
+            "Planowanie wejścia na rynek",
+            "Wsparcie w podejmowaniu decyzji"
+          ]
+        },
+        it: {
+          title: "Consulenza",
+          intro:
+            "Forniamo consulenza strategica, aziendale e internazionale orientata ai risultati.",
+          details:
+            "Supportiamo imprenditori e team manageriali nelle decisioni, nella pianificazione della crescita e nella gestione delle sfide legate alle attività internazionali.",
+          features: [
+            "Consulenza strategica",
+            "Valutazione del modello di business",
+            "Pianificazione dell'ingresso nel mercato",
+            "Supporto decisionale"
+          ]
+        },
+        en: {
+          title: "Consulting",
+          intro:
+            "We provide practical strategic, business and international consulting.",
+          details:
+            "We support entrepreneurs and management teams with decision-making, growth planning and challenges connected with international operations.",
+          features: [
+            "Strategic consulting",
+            "Business model assessment",
+            "Market-entry planning",
+            "Decision-making support"
+          ]
+        }
+      },
+
+      "real-estate": {
+        image: "assets/real-estate.jpg",
+        pl: {
+          title: "Nieruchomości",
+          intro:
+            "Wspieramy inwestycje, zakup, sprzedaż i rozwój projektów nieruchomościowych.",
+          details:
+            "Pomagamy w identyfikacji możliwości inwestycyjnych, analizie projektów, kontaktach z partnerami oraz koordynacji procesu transakcyjnego.",
+          features: [
+            "Wyszukiwanie nieruchomości i inwestycji",
+            "Analiza możliwości projektowych",
+            "Wsparcie zakupu i sprzedaży",
+            "Koordynacja partnerów i procesu"
+          ]
+        },
+        it: {
+          title: "Immobiliare",
+          intro:
+            "Sosteniamo investimenti, acquisti, vendite e sviluppo di progetti immobiliari.",
+          details:
+            "Aiutiamo a individuare opportunità di investimento, analizzare progetti, contattare partner e coordinare il processo di transazione.",
+          features: [
+            "Ricerca di immobili e investimenti",
+            "Analisi delle opportunità progettuali",
+            "Supporto nell'acquisto e nella vendita",
+            "Coordinamento di partner e processi"
+          ]
+        },
+        en: {
+          title: "Real Estate",
+          intro:
+            "We support investments, acquisitions, sales and real-estate development projects.",
+          details:
+            "We help identify investment opportunities, assess projects, connect with partners and coordinate the transaction process.",
+          features: [
+            "Property and investment sourcing",
+            "Project opportunity assessment",
+            "Purchase and sale support",
+            "Partner and process coordination"
+          ]
+        }
+      },
+
+      automotive: {
+        image: "assets/automotive.jpg",
+        pl: {
+          title: "Automotive",
+          intro:
+            "Łączymy wiedzę rynkową z relacjami w branży motoryzacyjnej.",
+          details:
+            "Wspieramy import, sprzedaż, zakup oraz rozwój współpracy biznesowej w sektorze automotive na rynku polskim, włoskim i europejskim.",
+          features: [
+            "Import i sprzedaż pojazdów",
+            "Doradztwo zakupowe i rynkowe",
+            "Relacje z partnerami branżowymi",
+            "Wsparcie transakcji międzynarodowych"
+          ]
+        },
+        it: {
+          title: "Automotive",
+          intro:
+            "Uniamo conoscenza del mercato e relazioni nel settore automobilistico.",
+          details:
+            "Sosteniamo importazione, vendita, acquisto e sviluppo di collaborazioni commerciali nel settore automotive in Italia, Polonia ed Europa.",
+          features: [
+            "Importazione e vendita di veicoli",
+            "Consulenza per acquisti e mercato",
+            "Rapporti con partner del settore",
+            "Supporto alle transazioni internazionali"
+          ]
+        },
+        en: {
+          title: "Automotive",
+          intro:
+            "We combine market knowledge with relationships across the automotive industry.",
+          details:
+            "We support import, sales, purchasing and business cooperation in the automotive sector across Poland, Italy and Europe.",
+          features: [
+            "Vehicle import and sales",
+            "Purchasing and market consulting",
+            "Automotive industry relationships",
+            "International transaction support"
+          ]
+        }
+      },
+
+      events: {
+        image: "assets/events.jpg",
+        pl: {
+          title: "Eventy",
+          intro:
+            "Organizujemy wydarzenia, które wspierają relacje, sprzedaż i rozwój biznesu.",
+          details:
+            "Koordynujemy wydarzenia biznesowe, targi, spotkania branżowe i prezentacje, dbając o partnerów, logistykę oraz realizację celów projektu.",
+          features: [
+            "Wydarzenia biznesowe",
+            "Targi i spotkania branżowe",
+            "Prezentacje produktów i marek",
+            "Koordynacja logistyczna"
+          ]
+        },
+        it: {
+          title: "Eventi",
+          intro:
+            "Organizziamo eventi che favoriscono relazioni, vendite e crescita aziendale.",
+          details:
+            "Coordiniamo eventi aziendali, fiere, incontri di settore e presentazioni, gestendo partner, logistica e obiettivi del progetto.",
+          features: [
+            "Eventi aziendali",
+            "Fiere e incontri di settore",
+            "Presentazioni di prodotti e marchi",
+            "Coordinamento logistico"
+          ]
+        },
+        en: {
+          title: "Events",
+          intro:
+            "We organise events that support relationships, sales and business growth.",
+          details:
+            "We coordinate business events, trade fairs, industry meetings and presentations while managing partners, logistics and project objectives.",
+          features: [
+            "Business events",
+            "Trade fairs and industry meetings",
+            "Product and brand presentations",
+            "Logistics coordination"
+          ]
+        }
+      },
+
+      projects: {
+        image: "assets/projects.jpg",
+        pl: {
+          title: "Projekty",
+          intro:
+            "Prowadzimy projekty od koncepcji do skutecznej realizacji.",
+          details:
+            "Łączymy kompetencje, partnerów i zasoby potrzebne do realizacji projektów w Polsce, Włoszech i na innych rynkach europejskich.",
+          features: [
+            "Planowanie i przygotowanie projektu",
+            "Dobór wykonawców i partnerów",
+            "Koordynacja realizacji",
+            "Kontrola postępów i celów"
+          ]
+        },
+        it: {
+          title: "Progetti",
+          intro:
+            "Gestiamo i progetti dall'idea fino alla realizzazione.",
+          details:
+            "Uniamo competenze, partner e risorse necessarie per realizzare progetti in Italia, Polonia e negli altri mercati europei.",
+          features: [
+            "Pianificazione e preparazione del progetto",
+            "Selezione di fornitori e partner",
+            "Coordinamento della realizzazione",
+            "Controllo di avanzamento e obiettivi"
+          ]
+        },
+        en: {
+          title: "Projects",
+          intro:
+            "We manage projects from the initial concept through successful delivery.",
+          details:
+            "We bring together the expertise, partners and resources required to deliver projects in Poland, Italy and other European markets.",
+          features: [
+            "Project planning and preparation",
+            "Supplier and partner selection",
+            "Delivery coordination",
+            "Progress and objective monitoring"
+          ]
+        }
+      }
+    };
+
+    const parameters = new URLSearchParams(window.location.search);
+    const serviceKey = services[parameters.get("service")]
+      ? parameters.get("service")
+      : "business";
+
+    let activeLanguage = ["pl", "it", "en"].includes(parameters.get("lang"))
+      ? parameters.get("lang")
+      : localStorage.getItem("livarozLanguage") || "pl";
+
+    const languageSelect = document.getElementById("languageSelect");
+    const serviceHero = document.getElementById("serviceHero");
+    const featureList = document.getElementById("featureList");
+
+    function renderPage(language) {
+      activeLanguage = ["pl", "it", "en"].includes(language)
+        ? language
+        : "pl";
+
+      const content = services[serviceKey][activeLanguage];
+      const interfaceText = common[activeLanguage];
+
+      document.documentElement.lang = activeLanguage;
+      document.title = "LIVAROZ | " + content.title;
+      languageSelect.value = activeLanguage;
+      localStorage.setItem("livarozLanguage", activeLanguage);
+
+      document.getElementById("serviceTitle").textContent = content.title;
+      document.getElementById("serviceIntro").textContent = content.intro;
+      document.getElementById("serviceDetails").textContent = content.details;
+      document.getElementById("scopeTitle").textContent = interfaceText.scope;
+      document.getElementById("backText").textContent = interfaceText.back;
+      document.getElementById("contactLabel").textContent =
+        interfaceText.contactLabel;
+      document.getElementById("contactTitle").textContent =
+        interfaceText.contactTitle;
+      document.getElementById("contactDescription").textContent =
+        interfaceText.contactDescription;
+      document.getElementById("rights").textContent = interfaceText.rights;
+
+      document.getElementById("backLink").href =
+        "index_fixed(1).html?lang=" +
+        encodeURIComponent(activeLanguage) +
+        "#uslugi";
+
+      serviceHero.style.backgroundImage =
+        "linear-gradient(90deg, rgba(16,29,50,.96), rgba(16,29,50,.55)), " +
+        "url('" + services[serviceKey].image + "')";
+
+      featureList.innerHTML = "";
+
+      content.features.forEach((feature) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = feature;
+        featureList.appendChild(listItem);
+      });
+
+      const updatedUrl =
+        "service.html?service=" +
+        encodeURIComponent(serviceKey) +
+        "&lang=" +
+        encodeURIComponent(activeLanguage);
+
+      window.history.replaceState({}, "", updatedUrl);
+    }
+
+    function openGmail() {
+      const content = services[serviceKey][activeLanguage];
+      const interfaceText = common[activeLanguage];
+      const email = "livaroz@livaroz.net";
+
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent(email) +
+        "&su=" + encodeURIComponent(interfaceText.emailSubject) +
+        "&body=" +
+        interfaceText.emailBody +
+        encodeURIComponent(content.title) +
+        "%0D%0A%0D%0A";
+
+      const gmailWindow = window.open(
+        gmailUrl,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      if (!gmailWindow) {
+        window.location.href =
+          "mailto:" +
+          email +
+          "?subject=" +
+          encodeURIComponent(interfaceText.emailSubject) +
+          "&body=" +
+          interfaceText.emailBody +
+          encodeURIComponent(content.title);
+      }
+    }
+
+    languageSelect.addEventListener("change", (event) => {
+      renderPage(event.target.value);
+    });
+
+    document
+      .getElementById("contactButton")
+      .addEventListener("click", openGmail);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    renderPage(activeLanguage);
+  </script>
+</body>
+</html>
