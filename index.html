@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="LIVAROZ - Business Development & Market Entry Partner dla Włoch, Polski i rynków europejskich."
+  >
+  <title>LIVAROZ | Business Development & Market Entry</title>
+
+  <style>
+    :root {
+      --navy: #101d32;
+      --navy-light: #192b49;
+      --gold: #c6a464;
+      --cream: #f4f0e8;
+      --white: #ffffff;
+      --text: #273142;
+      --muted: #687284;
+      --shadow: 0 16px 45px rgba(16, 29, 50, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+    }
+
+    .section-title p {
+      max-width: 680px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: rgba(16, 29, 50, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), #ead7a9);
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      border-radius: 50%;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .language-select {
+      padding: 9px 12px;
+      color: var(--white);
+      background: var(--navy-light);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .language-select option {
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: grid;
+      min-height: 760px;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(16, 29, 50, 0.96), rgba(16, 29, 50, 0.66)),
+        url("assets/handshake.jpg") center/cover;
+      padding: 145px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-flags {
+      margin: 26px 0 18px;
+      color: var(--gold);
+      font-size: 1.6rem;
+      letter-spacing: 0.25em;
+    }
+
+    .hero p {
+      max-width: 690px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 51px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 23px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        color 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--gold);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .services {
+      background: var(--cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      overflow: hidden;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(16, 29, 50, 0.17);
+    }
+
+    .service-card img {
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 27px;
+    }
+
+    .service-icon {
+      display: inline-grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      margin-bottom: 18px;
+      color: var(--navy);
+      background: var(--gold);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 1.25rem;
+    }
+
+    .service-card p {
+      min-height: 52px;
+      color: var(--muted);
+    }
+
+    .more-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--navy);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .more-link:hover {
+      color: var(--gold);
+    }
+
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .market-card {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .market-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .market-card:hover img {
+      transform: scale(1.045);
+    }
+
+    .market-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      color: var(--white);
+      background: linear-gradient(transparent 35%, rgba(16, 29, 50, 0.95));
+    }
+
+    .market-overlay h3 {
+      margin-bottom: 8px;
+      font-size: 1.55rem;
+    }
+
+    .partner {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .partner-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .partner-image {
+      min-height: 510px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .partner h2 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .partner-copy {
+      margin: 22px 0 30px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.08rem;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .value {
+      padding: 18px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .value span {
+      margin-right: 9px;
+      color: var(--gold);
+    }
+
+    .contact {
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .contact h2 {
+      color: var(--navy);
+      font-size: clamp(2.1rem, 5vw, 4rem);
+    }
+
+    .contact p {
+      max-width: 650px;
+      margin: 18px auto 30px;
+      color: var(--muted);
+    }
+
+    .email-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 17px 27px;
+      color: var(--white);
+      background: var(--navy);
+      border: 0;
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: pointer;
+      transition:
+        background 0.2s,
+        transform 0.2s;
+    }
+
+    .email-button:hover {
+      color: var(--navy);
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      padding: 30px 0;
+      color: rgba(255, 255, 255, 0.72);
+      background: #0a1425;
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 920px) {
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        right: 0;
+        bottom: 0;
+        width: min(330px, 88vw);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px;
+        background: var(--navy);
+        transform: translateX(100%);
+        transition: transform 0.25s;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+        font-size: 1rem;
+      }
+
+      .services-grid,
+      .markets-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .partner-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-image {
+        min-height: 370px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        min-height: 690px;
+      }
+
+      .services-grid,
+      .markets-grid,
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .market-card {
+        min-height: 370px;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Główna nawigacja">
+      <a class="logo" href="#start" aria-label="LIVAROZ - strona główna"><span class="logo-mark">L</span><span>LIVAROZ</span></a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Otwórz menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#start" data-i18n="navHome">Start</a>
+        <a href="#uslugi" data-i18n="navServices">Usługi</a>
+        <a href="#rynki" data-i18n="navMarkets">Rynki</a>
+        <a href="#o-nas" data-i18n="navAbout">O nas</a>
+        <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+
+        <select
+          class="language-select"
+          id="languageSelect"
+          aria-label="Wybierz język"
+        >
+          <option value="pl">PL - Polski</option>
+          <option value="it">IT - Italiano</option>
+          <option value="en">EN - English</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero-content">
+        <span class="eyebrow" data-i18n="heroEyebrow">
+          Business Development & Market Entry Partner
+        </span>
+
+        <h1 data-i18n="heroTitle">
+          DLA WŁOCH, POLSKI I RYNKÓW EUROPEJSKICH
+        </h1>
+
+        <div class="hero-flags" aria-label="Włochy, Polska i Europa">
+          🇮🇹 ↔ 🇵🇱 ↔ 🇪🇺
+        </div>
+
+        <p data-i18n="heroDescription">
+          Łączymy firmy, ludzi, rynki i możliwości. Pomagamy rozwijać biznes
+          oraz projekty ponad granicami.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#uslugi">
+            <span data-i18n="ourServices">Nasze usługi</span>&nbsp;→
+          </a>
+
+          <button
+            class="button button-secondary contact-action"
+            type="button"
+          >
+            <span data-i18n="contactUs">Skontaktuj się</span>&nbsp;→
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="uslugi">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">LIVAROZ</span>
+          <h2 data-i18n="servicesTitle">NASZE GŁÓWNE OBSZARY DZIAŁALNOŚCI</h2>
+          <p data-i18n="servicesDescription">
+            Odpowiednie narzędzia i partnerzy do konkretnego projektu.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <img
+              src="assets/business.jpg"
+              alt="Rozwój biznesu"
+              data-i18n-alt="businessTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">↗</span>
+              <h3 data-i18n="businessTitle">ROZWÓJ BIZNESU</h3>
+              <p data-i18n="businessDescription">
+                Wsparcie w ekspansji, strategii rozwoju i partnerstwach.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=business"
+                data-service="business"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/consulting.jpg"
+              alt="Doradztwo"
+              data-i18n-alt="consultingTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">♟</span>
+              <h3 data-i18n="consultingTitle">DORADZTWO</h3>
+              <p data-i18n="consultingDescription">
+                Konsultacje biznesowe, strategiczne i międzynarodowe.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=consulting"
+                data-service="consulting"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/real-estate.jpg"
+              alt="Nieruchomości"
+              data-i18n-alt="realEstateTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">⌂</span>
+              <h3 data-i18n="realEstateTitle">NIERUCHOMOŚCI</h3>
+              <p data-i18n="realEstateDescription">
+                Inwestycje, zakup, sprzedaż i rozwój projektów.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=real-estate"
+                data-service="real-estate"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/automotive.jpg"
+              alt="Automotive"
+              data-i18n-alt="automotiveTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">◆</span>
+              <h3 data-i18n="automotiveTitle">AUTOMOTIVE</h3>
+              <p data-i18n="automotiveDescription">
+                Import, sprzedaż, doradztwo i relacje branżowe.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=automotive"
+                data-service="automotive"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/events.jpg"
+              alt="Eventy biznesowe"
+              data-i18n-alt="eventsTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">▣</span>
+              <h3 data-i18n="eventsTitle">EVENTY</h3>
+              <p data-i18n="eventsDescription">
+                Organizacja wydarzeń biznesowych, targów i spotkań.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=events"
+                data-service="events"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/projects.jpg"
+              alt="Projekty"
+              data-i18n-alt="projectsTitle"
+            >
+            <div class="service-content">
+              <span class="service-icon">⚙</span>
+              <h3 data-i18n="projectsTitle">PROJEKTY</h3>
+              <p data-i18n="projectsDescription">
+                Kompleksowa realizacja projektów w Polsce, Włoszech i Europie.
+              </p>
+              <a
+                class="more-link"
+                href="LIVAROZ_service(1).html?service=projects"
+                data-service="projects"
+              >
+                <span data-i18n="more">Więcej</span> →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rynki">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Market Entry</span>
+          <h2 data-i18n="marketsTitle">WŁOCHY • POLSKA • EUROPA</h2>
+          <p data-i18n="marketsDescription">
+            Łączymy rynki, ludzi i możliwości. Wspieramy rozwój firm na rynku
+            włoskim, polskim i europejskim.
+          </p>
+        </div>
+
+        <div class="markets-grid">
+          <article class="market-card">
+            <img
+              src="assets/italy.jpg"
+              alt="Włochy"
+              data-i18n-alt="italyTitle"
+            >
+            <div class="market-overlay">
+              <h3 data-i18n="italyTitle">🇮🇹 WŁOCHY</h3>
+              <p data-i18n="italyDescription">
+                Silny rynek, marki premium i Made in Italy.
+              </p>
+            </div>
+          </article>
+
+          <article class="market-card">
+            <img
+              src="assets/poland.jpg"
+              alt="Polska"
+              data-i18n-alt="polandTitle"
+            >
+            <div class="market-overlay">
+              <h3 data-i18n="polandTitle">🇵🇱 POLSKA</h3>
+              <p data-i18n="polandDescription">
+                Dynamiczny rynek i nowe możliwości rozwoju.
+              </p>
+            </div>
+          </article>
+
+          <article class="market-card">
+            <img
+              src="assets/europe.jpg"
+              alt="Europa"
+              data-i18n-alt="europeTitle"
+            >
+            <div class="market-overlay">
+              <h3 data-i18n="europeTitle">🇪🇺 EUROPA</h3>
+              <p data-i18n="europeDescription">
+                Współpraca ponad granicami i międzynarodowe projekty.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partner" id="o-nas">
+      <div class="container partner-layout">
+        <img
+          class="partner-image"
+          src="assets/handshake.jpg"
+          alt="Współpraca biznesowa"
+          data-i18n-alt="partnerImageAlt"
+        >
+
+        <div>
+          <span class="eyebrow">LIVAROZ</span>
+          <h2 data-i18n="partnerTitle">TWÓJ PARTNER W BIZNESIE</h2>
+
+          <p class="partner-copy" data-i18n="partnerDescription">
+            LIVAROZ wspiera rozwój biznesu, inwestycji i realizację projektów
+            pomiędzy Włochami, Polską i Europą.
+          </p>
+
+          <div class="values">
+            <div class="value">
+              <span>↗</span>
+              <span data-i18n="development">Rozwój</span>
+            </div>
+            <div class="value">
+              <span>♢</span>
+              <span data-i18n="cooperation">Współpraca</span>
+            </div>
+            <div class="value">
+              <span>◇</span>
+              <span data-i18n="opportunities">Możliwości</span>
+            </div>
+            <div class="value">
+              <span>◎</span>
+              <span data-i18n="international">Międzynarodowość</span>
+            </div>
+          </div>
+
+          <button class="button button-primary contact-action" type="button">
+            <span data-i18n="contactUs">Skontaktuj się</span>&nbsp;→
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="kontakt">
+      <div class="container">
+        <span class="eyebrow" data-i18n="contactLabel">Kontakt</span>
+        <h2 data-i18n="contactTitle">Masz projekt? Porozmawiajmy.</h2>
+        <p data-i18n="contactDescription">
+          Opowiedz nam o swoim projekcie, rynku lub potrzebie biznesowej.
+        </p>
+
+        <button class="email-button contact-action" type="button">
+          livaroz@livaroz.net&nbsp; →
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="currentYear"></span> LIVAROZ.
+      <span data-i18n="rights">Wszelkie prawa zastrzeżone.</span>
+    </p>
+  </footer>
+
+  <script>
+    const translations = {
+      pl: {
+        pageTitle: "LIVAROZ | Rozwój biznesu i wejście na rynek",
+        pageDescription:
+          "LIVAROZ - Business Development & Market Entry Partner dla Włoch, Polski i rynków europejskich.",
+        navHome: "Start",
+        navServices: "Usługi",
+        navMarkets: "Rynki",
+        navAbout: "O nas",
+        navContact: "Kontakt",
+        heroEyebrow: "Business Development & Market Entry Partner",
+        heroTitle: "DLA WŁOCH, POLSKI I RYNKÓW EUROPEJSKICH",
+        heroDescription:
+          "Łączymy firmy, ludzi, rynki i możliwości. Pomagamy rozwijać biznes oraz projekty ponad granicami.",
+        ourServices: "Nasze usługi",
+        contactUs: "Skontaktuj się",
+        servicesTitle: "NASZE GŁÓWNE OBSZARY DZIAŁALNOŚCI",
+        servicesDescription:
+          "Odpowiednie narzędzia i partnerzy do konkretnego projektu.",
+        businessTitle: "ROZWÓJ BIZNESU",
+        businessDescription:
+          "Wsparcie w ekspansji, strategii rozwoju i partnerstwach.",
+        consultingTitle: "DORADZTWO",
+        consultingDescription:
+          "Konsultacje biznesowe, strategiczne i międzynarodowe.",
+        realEstateTitle: "NIERUCHOMOŚCI",
+        realEstateDescription:
+          "Inwestycje, zakup, sprzedaż i rozwój projektów.",
+        automotiveTitle: "AUTOMOTIVE",
+        automotiveDescription:
+          "Import, sprzedaż, doradztwo i relacje branżowe.",
+        eventsTitle: "EVENTY",
+        eventsDescription:
+          "Organizacja wydarzeń biznesowych, targów i spotkań.",
+        projectsTitle: "PROJEKTY",
+        projectsDescription:
+          "Kompleksowa realizacja projektów w Polsce, Włoszech i Europie.",
+        more: "Więcej",
+        marketsTitle: "WŁOCHY • POLSKA • EUROPA",
+        marketsDescription:
+          "Łączymy rynki, ludzi i możliwości. Wspieramy rozwój firm na rynku włoskim, polskim i europejskim.",
+        italyTitle: "🇮🇹 WŁOCHY",
+        italyDescription: "Silny rynek, marki premium i Made in Italy.",
+        polandTitle: "🇵🇱 POLSKA",
+        polandDescription: "Dynamiczny rynek i nowe możliwości rozwoju.",
+        europeTitle: "🇪🇺 EUROPA",
+        europeDescription:
+          "Współpraca ponad granicami i międzynarodowe projekty.",
+        partnerImageAlt: "Współpraca biznesowa",
+        partnerTitle: "TWÓJ PARTNER W BIZNESIE",
+        partnerDescription:
+          "LIVAROZ wspiera rozwój biznesu, inwestycji i realizację projektów pomiędzy Włochami, Polską i Europą.",
+        development: "Rozwój",
+        cooperation: "Współpraca",
+        opportunities: "Możliwości",
+        international: "Międzynarodowość",
+        contactLabel: "Kontakt",
+        contactTitle: "Masz projekt? Porozmawiajmy.",
+        contactDescription:
+          "Opowiedz nam o swoim projekcie, rynku lub potrzebie biznesowej.",
+        rights: "Wszelkie prawa zastrzeżone.",
+        emailSubject: "Zapytanie biznesowe - LIVAROZ",
+        emailBody:
+          "Dzień dobry,%0D%0A%0D%0AChciałbym porozmawiać o projekcie:%0D%0A%0D%0A"
+      },
+
+      it: {
+        pageTitle: "LIVAROZ | Sviluppo commerciale e ingresso nel mercato",
+        pageDescription:
+          "LIVAROZ - Partner per lo sviluppo commerciale e l'ingresso nei mercati italiano, polacco ed europeo.",
+        navHome: "Home",
+        navServices: "Servizi",
+        navMarkets: "Mercati",
+        navAbout: "Chi siamo",
+        navContact: "Contatti",
+        heroEyebrow: "Partner per lo sviluppo commerciale e l'ingresso nel mercato",
+        heroTitle: "PER L'ITALIA, LA POLONIA E I MERCATI EUROPEI",
+        heroDescription:
+          "Colleghiamo aziende, persone, mercati e opportunità. Aiutiamo a sviluppare imprese e progetti oltre i confini.",
+        ourServices: "I nostri servizi",
+        contactUs: "Contattaci",
+        servicesTitle: "LE NOSTRE PRINCIPALI AREE DI ATTIVITÀ",
+        servicesDescription:
+          "Gli strumenti e i partner giusti per ogni progetto.",
+        businessTitle: "SVILUPPO COMMERCIALE",
+        businessDescription:
+          "Supporto nell'espansione, nella strategia di crescita e nelle partnership.",
+        consultingTitle: "CONSULENZA",
+        consultingDescription:
+          "Consulenza aziendale, strategica e internazionale.",
+        realEstateTitle: "IMMOBILIARE",
+        realEstateDescription:
+          "Investimenti, acquisto, vendita e sviluppo di progetti.",
+        automotiveTitle: "AUTOMOTIVE",
+        automotiveDescription:
+          "Importazione, vendita, consulenza e relazioni di settore.",
+        eventsTitle: "EVENTI",
+        eventsDescription:
+          "Organizzazione di eventi aziendali, fiere e incontri.",
+        projectsTitle: "PROGETTI",
+        projectsDescription:
+          "Realizzazione completa di progetti in Polonia, Italia ed Europa.",
+        more: "Scopri di più",
+        marketsTitle: "ITALIA • POLONIA • EUROPA",
+        marketsDescription:
+          "Colleghiamo mercati, persone e opportunità. Sosteniamo la crescita delle aziende nei mercati italiano, polacco ed europeo.",
+        italyTitle: "🇮🇹 ITALIA",
+        italyDescription: "Un mercato forte, marchi premium e Made in Italy.",
+        polandTitle: "🇵🇱 POLONIA",
+        polandDescription:
+          "Un mercato dinamico e nuove opportunità di crescita.",
+        europeTitle: "🇪🇺 EUROPA",
+        europeDescription:
+          "Cooperazione transfrontaliera e progetti internazionali.",
+        partnerImageAlt: "Collaborazione commerciale",
+        partnerTitle: "IL TUO PARTNER NEL BUSINESS",
+        partnerDescription:
+          "LIVAROZ sostiene lo sviluppo commerciale, gli investimenti e la realizzazione di progetti tra Italia, Polonia ed Europa.",
+        development: "Sviluppo",
+        cooperation: "Collaborazione",
+        opportunities: "Opportunità",
+        international: "Internazionalità",
+        contactLabel: "Contatti",
+        contactTitle: "Hai un progetto? Parliamone.",
+        contactDescription:
+          "Raccontaci il tuo progetto, il mercato di riferimento o la tua esigenza aziendale.",
+        rights: "Tutti i diritti riservati.",
+        emailSubject: "Richiesta commerciale - LIVAROZ",
+        emailBody:
+          "Buongiorno,%0D%0A%0D%0AVorrei parlare del seguente progetto:%0D%0A%0D%0A"
+      },
+
+      en: {
+        pageTitle: "LIVAROZ | Business Development and Market Entry",
+        pageDescription:
+          "LIVAROZ - Business Development and Market Entry Partner for Italy, Poland and European markets.",
+        navHome: "Home",
+        navServices: "Services",
+        navMarkets: "Markets",
+        navAbout: "About us",
+        navContact: "Contact",
+        heroEyebrow: "Business Development & Market Entry Partner",
+        heroTitle: "FOR ITALY, POLAND AND EUROPEAN MARKETS",
+        heroDescription:
+          "We connect companies, people, markets and opportunities. We help businesses and projects grow across borders.",
+        ourServices: "Our services",
+        contactUs: "Contact us",
+        servicesTitle: "OUR MAIN AREAS OF EXPERTISE",
+        servicesDescription:
+          "The right tools and partners for each specific project.",
+        businessTitle: "BUSINESS DEVELOPMENT",
+        businessDescription:
+          "Support with expansion, growth strategy and partnerships.",
+        consultingTitle: "CONSULTING",
+        consultingDescription:
+          "Business, strategic and international consulting.",
+        realEstateTitle: "REAL ESTATE",
+        realEstateDescription:
+          "Investments, acquisitions, sales and project development.",
+        automotiveTitle: "AUTOMOTIVE",
+        automotiveDescription:
+          "Import, sales, consulting and industry relationships.",
+        eventsTitle: "EVENTS",
+        eventsDescription:
+          "Organisation of business events, trade fairs and meetings.",
+        projectsTitle: "PROJECTS",
+        projectsDescription:
+          "End-to-end project delivery in Poland, Italy and Europe.",
+        more: "Learn more",
+        marketsTitle: "ITALY • POLAND • EUROPE",
+        marketsDescription:
+          "We connect markets, people and opportunities. We support companies growing in Italy, Poland and across Europe.",
+        italyTitle: "🇮🇹 ITALY",
+        italyDescription:
+          "A strong market, premium brands and Made in Italy.",
+        polandTitle: "🇵🇱 POLAND",
+        polandDescription:
+          "A dynamic market with new opportunities for growth.",
+        europeTitle: "🇪🇺 EUROPE",
+        europeDescription:
+          "Cross-border cooperation and international projects.",
+        partnerImageAlt: "Business cooperation",
+        partnerTitle: "YOUR BUSINESS PARTNER",
+        partnerDescription:
+          "LIVAROZ supports business growth, investments and project delivery between Italy, Poland and Europe.",
+        development: "Development",
+        cooperation: "Cooperation",
+        opportunities: "Opportunities",
+        international: "International reach",
+        contactLabel: "Contact",
+        contactTitle: "Have a project? Let's talk.",
+        contactDescription:
+          "Tell us about your project, target market or business requirement.",
+        rights: "All rights reserved.",
+        emailSubject: "Business inquiry - LIVAROZ",
+        emailBody:
+          "Hello,%0D%0A%0D%0AI would like to discuss the following project:%0D%0A%0D%0A"
+      }
+    };
+
+    const languageSelect = document.getElementById("languageSelect");
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+
+    function setLanguage(language) {
+      const selectedLanguage = translations[language]
+        ? language
+        : "pl";
+
+      const dictionary = translations[selectedLanguage];
+
+      document.documentElement.lang = selectedLanguage;
+      document.title = dictionary.pageTitle;
+      descriptionMeta.setAttribute("content", dictionary.pageDescription);
+      languageSelect.value = selectedLanguage;
+      localStorage.setItem("livarozLanguage", selectedLanguage);
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+
+        if (dictionary[key]) {
+          element.textContent = dictionary[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        const key = element.dataset.i18nAlt;
+
+        if (dictionary[key]) {
+          element.alt = dictionary[key].replace(/^[^\wÀ-ž]+/, "");
+        }
+      });
+
+      document.querySelectorAll("[data-service]").forEach((link) => {
+        const service = link.dataset.service;
+
+        link.href =
+          "service.html?service=" +
+          encodeURIComponent(service) +
+          "&lang=" +
+          encodeURIComponent(selectedLanguage);
+      });
+    }
+
+    function openGmail() {
+      const language = document.documentElement.lang || "pl";
+      const dictionary = translations[language] || translations.pl;
+      const email = "livaroz@livaroz.net";
+      const subject = encodeURIComponent(dictionary.emailSubject);
+      const body = dictionary.emailBody;
+
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent(email) +
+        "&su=" + subject +
+        "&body=" + body;
+
+      const gmailWindow = window.open(
+        gmailUrl,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      if (!gmailWindow) {
+        window.location.href =
+          "mailto:" + email +
+          "?subject=" + subject +
+          "&body=" + body;
+      }
+    }
+
+    function closeMenu() {
+      navLinks.classList.remove("active");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }
+
+    languageSelect.addEventListener("change", (event) => {
+      setLanguage(event.target.value);
+    });
+
+    document.querySelectorAll(".contact-action").forEach((button) => {
+      button.addEventListener("click", openGmail);
+    });
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+
+      document.body.classList.toggle("menu-open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    const savedLanguage =
+      localStorage.getItem("livarozLanguage") || "pl";
+
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
